@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="text-center">Please select your calendar</h1>
+  <ul class="calendar-list">
+    <% @calendar_list.items.each do |calendar| %>
+        <li>
+          <a href="<%= events_url(calendar_id: calendar.id) %>">
+            <%= calendar.summary %>
+          </a>
+        </li>
+    <% end %>
+  </ul>
+</div>

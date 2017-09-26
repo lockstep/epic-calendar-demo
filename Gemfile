@@ -63,6 +63,12 @@ gem 'high_voltage', '~> 3.0.0'
 # Security
 gem 'secure_headers', require: false
 
+# Google Omniauth
+gem 'omniauth-google-oauth2'
+
+# Google Client
+gem 'google-api-client'
+
 group :production do
   # Remove this if the app is not hosted on Heroku
   gem 'heroku-deflater'

@@ -1,11 +1,13 @@
-<% content_for :page_title, 'Landing page' %>
+<% content_for :page_title, 'Epic calendar' %>
 
-<h2>Landing page</h2>
-
-<p class="lead">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi debitis delectus eligendi enim ex fugit incidunt libero, minus officia perferendis porro possimus quam quidem sapiente, sunt, veniam voluptas voluptate?
-</p>
-
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae corporis deleniti eos eveniet excepturi labore mollitia nesciunt non nostrum obcaecati, possimus quidem temporibus vel velit voluptas voluptatum! Id, voluptatum?
-</p>
+<div class="container">
+  <h2 class="text-center">Login</h2>
+  <div class="row justify-content-center">
+    <%= link_to user_google_oauth2_omniauth_authorize_path, class: 'btn btn-login' do %>
+        <svg width="100%" height="100%" viewBox="0 0 15 15" style="fill: currentcolor; display: block; width: 14px; height: 14px; margin-right: 6px;">
+          <path d="M 7.28571 6.4125L 7.28571 9L 11.3929 9C 11.2143 10.0875 10.1429 12.225 7.28571 12.225C 4.78571 12.225 2.78571 10.0875 2.78571 7.5C 2.78571 4.9125 4.82143 2.775 7.28571 2.775C 8.71429 2.775 9.64286 3.4125 10.1786 3.9375L 12.1429 1.9875C 10.8929 0.75 9.25 0 7.28571 0C 3.25 0 0 3.3375 0 7.5C 0 11.6625 3.25 15 7.28571 15C 11.5 15 14.25 11.9625 14.25 7.6875C 14.25 7.2 14.2143 6.825 14.1429 6.45L 7.28571 6.45L 7.28571 6.4125Z"></path>
+        </svg>
+        Continue with google
+    <% end %>
+  </div>
+</div>

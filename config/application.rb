@@ -2,6 +2,10 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require 'signet/oauth_2/client'
+require 'google/apis/calendar_v3'
+require 'googleauth'
+
 require_relative '../lib/rack/reject_methods'
 
 # Require the gems listed in Gemfile, including any gems
@@ -9,7 +13,7 @@ require_relative '../lib/rack/reject_methods'
 Bundler.require(*Rails.groups)
 
 # TODO: Change module name to the actual project name
-module RailsNew
+module EpicCalendar
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
