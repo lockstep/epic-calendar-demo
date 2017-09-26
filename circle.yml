@@ -1,7 +1,3 @@
-dependencies:
-  # post:
-  #   - bundle exec bundle-audit check --update
-
 checkout:
   post:
     - cp config/application.yml.example config/application.yml
