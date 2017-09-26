@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'signet/oauth_2/client'
-require 'google/apis/calendar_v3'
-require 'googleauth'
-
 class CalendarsController < ApplicationController
   def calendars
     client = Signet::OAuth2::Client.new(client_options)

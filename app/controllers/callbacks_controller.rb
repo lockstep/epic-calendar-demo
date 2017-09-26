@@ -1,6 +1,4 @@
-require 'signet/oauth_2/client'
-require 'googleauth'
-
+# frozen_string_literal: true
 
 class CallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2

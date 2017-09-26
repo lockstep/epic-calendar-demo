@@ -2,6 +2,10 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require 'signet/oauth_2/client'
+require 'google/apis/calendar_v3'
+require 'googleauth'
+
 require_relative '../lib/rack/reject_methods'
 
 # Require the gems listed in Gemfile, including any gems
