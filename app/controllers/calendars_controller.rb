@@ -1,6 +1,25 @@
 # frozen_string_literal: true
 
 class CalendarsController < ApplicationController
+  skip_before_action :authenticate_user!
+
+  def redirect
+    client = Signet::OAuth2::Client.new(client_options)
+
+    redirect_to client.authorization_uri.to_s
+  end
+
+  def callback
+    client = Signet::OAuth2::Client.new(client_options)
+    client.code = params[:code]
+
+    response = client.fetch_access_token!
+
+    session[:authorization] = response
+
+    redirect_to calendars_url
+  end
+
   def calendars
     client = Signet::OAuth2::Client.new(client_options)
     client.update!(session[:authorization])
@@ -9,7 +28,7 @@ class CalendarsController < ApplicationController
     service.authorization = client
 
     @calendar_list = service.list_calendar_lists
-  rescue Google::Apis::AuthorizationError
+  rescue Google::Apis::ClientError
     response = client.refresh!
 
     session[:authorization] = session[:authorization].merge(response)
