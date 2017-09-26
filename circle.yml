@@ -1,6 +1,6 @@
 dependencies:
-  post:
-    - bundle exec bundle-audit check --update
+  # post:
+  #   - bundle exec bundle-audit check --update
 
 checkout:
   post:
