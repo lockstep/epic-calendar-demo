@@ -8,7 +8,7 @@
             <!--<img class="card-img-top" src="http://loremflickr.com/320/0/city?random=<%= idx %>"-->
             <!--alt="Card image cap">-->
             <div class="card-body">
-              <% if event.start.date_time.present? %>
+              <% if event.start&.date_time.present? %>
                   <h3 class="card-title"><%= event.start.date_time.strftime("%A %b %d") %></h3>
               <% else %>
                   <h3 class="card-title"><%= event.start.date.to_datetime.strftime("%A %b %d") %></h3>
