@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="text-center">Events</h1>
+  <%= "No events for this calendar" if @event_list.items.size.zero? %>
+  <ul class="event-list">
+    <% @event_list.items.reverse.each_with_index do |event, idx| %>
+        <li class="item">
+          <div class="card" style="width: 20rem;">
+            <!--<img class="card-img-top" src="http://loremflickr.com/320/0/city?random=<%= idx %>"-->
+            <!--alt="Card image cap">-->
+            <div class="card-body">
+              <% if event.start.date_time.present? %>
+                  <h3 class="card-title"><%= event.start.date_time.strftime("%A %b %d") %></h3>
+              <% else %>
+                  <h3 class="card-title"><%= event.start.date.to_datetime.strftime("%A %b %d") %></h3>
+              <% end %>
+
+              <p class="card-text font-italic">
+                <%= event.summary %>
+              </p>
+
+              <% if event.start.date_time.present? %>
+                  <p class="card-text">
+                    <%= event.start.date_time.strftime("%I:%M%p ") %> -  <%= event.end.date_time
+                                                                             .strftime("%I:%M%p ") %>
+                  </p>
+              <% end %>
+
+              Attendees:
+              <ul>
+                <% if event.attendees.nil? %>
+                    <li> No participants on this event</li>
+                <% else %>
+                    <% event.attendees.each do |a| %>
+                        <li><%= a.display_name %> (<%= a.email %>)</li>
+                    <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>
